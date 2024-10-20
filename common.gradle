@@ -8,9 +8,26 @@ android{
         consumerProguardFiles 'consumer-rules.pro'
     }
 
+    def localProperties = new Properties()
+    def localPropertiesFile = rootProject.file("local.properties")
+
+    if (localPropertiesFile.exists()) {
+        localProperties.load(new FileInputStream(localPropertiesFile))
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('sample')
+            storePassword localProperties.getProperty('KEYSTORE_PASSWORD')
+            keyAlias localProperties.getProperty('KEY_ALIAS')
+            keyPassword localProperties.getProperty('KEYSTORE_PASSWORD')
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles(
                     getDefaultProguardFile("proguard-android-optimize.txt"),
                     "proguard-rules.pro"

@@ -5,7 +5,6 @@ plugins {
 apply(from = "${rootProject.projectDir}/common.gradle")
 android {
     namespace = "com.example.sampleapptest"
-
     defaultConfig {
         applicationId = "com.example.sampleapptest"
         targetSdk = 34

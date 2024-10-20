@@ -31,3 +31,7 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Excluir keystore do versionamento
+/app/my-release-key.keystore
+/app/key.properties
