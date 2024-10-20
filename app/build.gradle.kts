@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 }
 apply(from = "${rootProject.projectDir}/common.gradle")
 android {
@@ -39,6 +40,12 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose)
+
+    //bundles
+    implementation(libs.bundles.koinDependences)
+
+    //tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -49,7 +56,7 @@ dependencies {
 
     //modules
     implementation(project(":feature_sample"))
-    implementation(project(":base_ui"))
     implementation(project(":di"))
     implementation(project(":data"))
+    implementation(project(":navigation"))
 }
