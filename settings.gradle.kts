@@ -21,4 +21,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "SampleAppTest"
 include(":app")
- 
+include(":base_ui")
+include(":data")
+include(":data_local")
+include(":data_remote")
+include(":di")
+include(":domain")
+include(":feature_sample")
